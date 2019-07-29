@@ -2,6 +2,9 @@ version: '2'
 volumes:
   volume_data:
 services:
+  keypad2mqtt:
+    build: ./keypad2mqtt
+    privileged: true
   samba-rsync:
     build: ./samba-rsync
     privileged: true
