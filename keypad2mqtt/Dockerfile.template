@@ -5,6 +5,6 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
   && \
   apt-get clean && rm -rf /var/lib/apt/lists/*
 
-#RUN  pip install evdev
+RUN  pip install evdev
 
 CMD [ "sleep", "84600"]
