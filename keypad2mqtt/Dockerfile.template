@@ -1,3 +1,5 @@
-FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-python:latest-buster-run
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-python:latest-stretch-run
+
+RUN  pip install evdev
 
 CMD [ "sleep", "84600"]
