@@ -35,8 +35,7 @@ Within your balenacloud dashboard you must set the following device service vari
 
 ### Interesting Links
 
-1. [python-evdev](https://python-evdev.readthedocs.io/en/latest/) 
+1. [python-evdev](https://python-evdev.readthedocs.io/en/latest/)
 1. python-evdev package also comes with a small command-line program for listing and monitoring input devices:
 
 ```python -m evdev.evtest```
-
