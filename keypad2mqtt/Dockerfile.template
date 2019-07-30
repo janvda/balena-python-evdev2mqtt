@@ -19,4 +19,5 @@ RUN pip install -r requirements.txt
 # This will main.py in our root to the working  directory in the container
 COPY main.py main.py
 
-CMD [ "sleep", "84600"]
+# main.py will run when container starts up on the device
+CMD [ "python","-u", "main.py"]
