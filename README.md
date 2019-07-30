@@ -19,9 +19,9 @@ The idea is to use ...
 
 ### 1. Deploy Balena application
 
-So as you might have guessed this is indeed a balena application.  So follow all standard instructions for setting up and deploying this balena application. (e.g. see [getting started raspberry pi example](https://www.balena.io/docs/learn/getting-started/raspberrypi3/nodejs/))
-
-After this step: this balena application should be running on your raspberry pi.
+So as you might have guessed this is indeed a balena application.  So follow all standard instructions for setting up and deploying this balena application. (e.g. see [Get started with Raspberry Pi 3 and Python
+](https://www.balena.io/docs/learn/getting-started/raspberrypi3/python/) and its [github repository](https://github.com/balena-io-projects/simple-server-python))
+After this step this balena application should be running on your raspberry pi.
 
 ### 2. TBD
 
@@ -36,7 +36,7 @@ Within your balenacloud dashboard you must set the following device service vari
 ### Interesting Links
 
 1. [python-evdev](https://python-evdev.readthedocs.io/en/latest/) 
-2. python-evdev package also comes with a small command-line program for listing and monitoring input devices:
+1. python-evdev package also comes with a small command-line program for listing and monitoring input devices:
 
 ```python -m evdev.evtest```
 
