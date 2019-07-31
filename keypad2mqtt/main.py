@@ -8,7 +8,7 @@ if __name__ == '__main__':
         print(" path=[", device.path,"], name=[", device.name, "], phys=[",device.phys,"]",sep='')
     if "input_device" in os.environ:
         device = evdev.InputDevice(os.environ["input_device"])
-        print("monitoring input:" + device)
+        print(device)
         for event in device.read_loop():
             if event.type == evdev.ecodes.EV_KEY:
                 print(evdev.categorize(event))
