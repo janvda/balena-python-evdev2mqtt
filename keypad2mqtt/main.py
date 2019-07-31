@@ -9,6 +9,7 @@ if __name__ == '__main__':
     if "input_device" in os.environ:
         device = evdev.InputDevice(os.environ["input_device"])
         print(device)
+        device.capabilities(verbose=True)
         for event in device.read_loop():
             if event.type == evdev.ecodes.EV_KEY:
                 print(evdev.categorize(event))
