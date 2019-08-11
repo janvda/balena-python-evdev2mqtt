@@ -1,13 +1,17 @@
 #empty file
 import evdev, time, os
+import paho.mqtt.client as mqtt
 
 if __name__ == '__main__':
     devices = [evdev.InputDevice(path) for path in evdev.list_devices()]
-    print("All input devices:")
+    print("All connected input devices:")
+    device_cnt=0
     for device in devices:
-        print(" path=[", device.path,"], name=[", device.name, "], phys=[",device.phys,"]",sep='')
+        device_cnt += 1
+        print(" ", device_cnt , ": path=[", device.path,"], name=[", device.name, "], phys=[",device.phys,"]",sep='')
     if "input_device" in os.environ:
         device = evdev.InputDevice(os.environ["input_device"])
+        print("\nListening to device:",end='\n  ')
         print(device)
         device.capabilities(verbose=True)
         for event in device.read_loop():
