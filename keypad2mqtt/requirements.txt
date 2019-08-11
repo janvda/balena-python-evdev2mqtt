@@ -1,2 +1,2 @@
 evdev==1.2.0
-paho-mqtt=1.4.0
+paho-mqtt==1.4.0
