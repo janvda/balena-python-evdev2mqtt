@@ -2,18 +2,19 @@
 #see https://hub.docker.com/r/nodered/node-red-docker
 FROM nodered/node-red-docker:rpi-v8
 
-# installing an editor
+# installing editor nano and usb libraries needed for node-red-contrib-usbhid (https://github.com/LedgerHQ/btchip-python/issues/27)
 USER root
-RUN apt-get update && apt-get install nano libusb-dev
+RUN apt-get update && apt-get install nano libusb-1.0.0-dev #libudev-dev
 
 # following command should assure that user node-red can use sudo without requiring to enter a password.
 RUN echo "node-red ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 USER node-red
 
+RUN npm install node-red-contrib-usbhid
 RUN npm install node-red-contrib-resinio
 RUN npm install node-red-dashboard
 RUN npm install node-red-contrib-credentials
-#RUN npm install node-red-contrib-usbhid
+
 
 COPY ./settings.js /data/settings.js
