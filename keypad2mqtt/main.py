@@ -19,7 +19,7 @@ if __name__ == '__main__':
         try:
             device = evdev.InputDevice(os.environ["input_device"])
         except Exception as error:
-            print("ERROR: opening $input_device(=\"",os.environ["input_device"], "\") failed",sep='')
+            print("ERROR: opening $input_device (=\"",os.environ["input_device"], "\") failed",sep='')
             print("$input_device must be equal to the path of one of the connected devices (see above)")
             raise
 
