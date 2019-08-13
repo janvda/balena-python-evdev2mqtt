@@ -23,12 +23,17 @@ if __name__ == '__main__':
             print("       Environment variable \"input_device\" must be equal to the path of one of the connected devices (see above)")
             raise
 
-        print("\nListening to ",end='')
-        print(device)
-        device.capabilities(verbose=True)
+       print(device)
+        print("The capabilities of the ",device)
+        print(device.capabilities(verbose=True))
+
+        print("\nListening to the device ...")
+
         for event in device.read_loop():
             if event.type == evdev.ecodes.EV_KEY:
                 print(evdev.categorize(event))
+
+    # all exceptions are handled !
     except Exception as error:
         print(error)
 
