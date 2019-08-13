@@ -16,7 +16,7 @@ services:
     environment:
       - UDEV=1  # see https://www.balena.io/docs/reference/base-images/base-images/#working-with-dynamically-plugged-devices
   mqtt:
-    image: eclipse-mosquitto:arm32v6 #panuwitp/mosquitto-arm
+    image: arm32v6/eclipse-mosquitto #https://hub.docker.com/_/eclipse-mosquitto   panuwitp/mosquitto-arm
     ports:
       - "1883:1883"
       
