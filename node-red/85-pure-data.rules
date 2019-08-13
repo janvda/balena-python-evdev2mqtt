@@ -1,0 +1,1 @@
+SUBSYSTEM=="usb", GROUP="input", MODE="777"
