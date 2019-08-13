@@ -28,7 +28,6 @@ if __name__ == '__main__':
         print(device.capabilities(verbose=True))
 
         print("\nListening to the device ...")
-
         for event in device.read_loop():
             if event.type == evdev.ecodes.EV_KEY:
                 print(evdev.categorize(event))
