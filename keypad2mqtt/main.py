@@ -18,20 +18,20 @@ if __name__ == '__main__':
         
         try:
             device = evdev.InputDevice(os.environ["input_device"])
-            print("\nThe selected input device (by means of environment variable \"input_device\"):")
+            print("\nThe selected input device (by means of environment variable \"input_device\")=")
             print("  ",device)
         except Exception as error:
             print("ERROR: opening input_device (=\"",os.environ["input_device"], "\") failed",sep='')
             print("       Environment variable \"input_device\" must be equal to the path of one of the connected devices (see above)")
             raise
 
-        print("The capabilities of the selected input device:")
+        print("\nThe capabilities of the selected input device =")
         print(device.capabilities(verbose=True))
 
         print("\nListening to the selected input device ...")
         for event in device.read_loop():
-            # if event.type == evdev.ecodes.EV_KEY:
-            print(evdev.categorize(event))
+            if event.type == evdev.ecodes.EV_KEY:
+                print(evdev.categorize(event))
 
     # all exceptions are handled !
     except Exception as error:
