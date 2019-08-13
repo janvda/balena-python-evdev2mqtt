@@ -14,6 +14,6 @@ USER node-red
 RUN npm install node-red-contrib-resinio
 RUN npm install node-red-dashboard
 RUN npm install node-red-contrib-credentials
-RUN npm install node-red-contrib-usbhid
+#RUN npm install node-red-contrib-usbhid
 
 COPY ./settings.js /data/settings.js
