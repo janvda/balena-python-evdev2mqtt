@@ -37,10 +37,12 @@ if __name__ == '__main__':
         for event in device.read_loop():
             if event.type == evdev.ecodes.EV_KEY:
                 keyevent= evdev.categorize(event)
+                keystate= "key_up" if keyevent.state == 0 else "key_down" if keyevent.keystate == 1 else "key_hold" if keyevent.keystate == 2 else "unknown_keystate"
                 print(keyevent)
-                # see https://python-evdev.readthedocs.io/en/latest/apidoc.html#module-evdev.events
+                # see https://python-evdev.readthedocs.io/en/latest/apidoc.html#evdev.events.InputEvent
                 mqtt_msg=json.dumps({"timestamp" : event.timestamp() ,  "keycode" : keyevent.keycode, 
-                                     "keystate" : keyevent.keystate , "scancode" : keyevent.scancode })
+                                     "keystate" :  keystate,
+                                     "keystate_raw" : keyevent.keystate , "scancode" : keyevent.scancode })
                 mqttClient.publish("keypad2mqtt/raw",str(evdev.categorize(event)))
                 mqttClient.publish("keypad2mqtt/EV_KEY",mqtt_msg)
 
