@@ -37,7 +37,7 @@ if __name__ == '__main__':
         for event in device.read_loop():
             if event.type == evdev.ecodes.EV_KEY:
                 keyevent= evdev.categorize(event)
-                keystate= "key_up" if keyevent.state == 0 else "key_down" if keyevent.keystate == 1 else "key_hold" if keyevent.keystate == 2 else "unknown_keystate"
+                keystate= "key_up" if keyevent.keystate == 0 else "key_down" if keyevent.keystate == 1 else "key_hold" if keyevent.keystate == 2 else "unknown_keystate"
                 print(keyevent)
                 # see https://python-evdev.readthedocs.io/en/latest/apidoc.html#evdev.events.InputEvent
                 mqtt_msg=json.dumps({"timestamp" : event.timestamp() ,  "keycode" : keyevent.keycode, 
