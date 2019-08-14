@@ -28,9 +28,14 @@ if __name__ == '__main__':
         print("\nThe capabilities of the selected input device =")
         print(device.capabilities(verbose=True))
 
+        # MQTT client setup
+        mqttBroker= "mqtt" if ( os.environ.get("mqtt_broker") is None ) else os.environ["mqtt_broker"]
+        mqttPort  =  1883  if ( os.environ.get("mqtt_port")   is None ) else os.environ["mqtt_port"]
+
         mqttClient=mqtt.Client("python-evdev2mqtt")
-        mqttClient.connect("mqtt",1883)
+        mqttClient.connect(mqttBroker,mqttPort)
         mqttClient.loop_start()
+        
         mqttClient.publish("python-evdev2mqtt/device","service started")
 
         print("\nListening to the selected input device ...")
