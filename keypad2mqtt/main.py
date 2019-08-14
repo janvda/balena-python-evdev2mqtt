@@ -37,7 +37,7 @@ if __name__ == '__main__':
         for event in device.read_loop():
             if event.type == evdev.ecodes.EV_KEY:
                 print(evdev.categorize(event))
-                mqttClient.publish("keypad2mqtt/event",evdev.categorize(event))
+                mqttClient.publish("keypad2mqtt/event","EV_KEY")
 
     # all exceptions are handled !
     except Exception as error:
