@@ -10,7 +10,9 @@ This is a [Balena](https://www.balena.io/) application consisting of 3 docker co
 
 ## Rationale for this Application
 
-The idea is to use ...
+The idea is to create a micro service (= `python-evdev2mqtt`) that sends MQTT messages whenever a keyevent happens on an input device connected to a USB port of a raspberry pi device.  Other services (e.g. `node-red`) by listening to those mqtt messages could then respond appropriately.
+
+E.g. a numeric USB keypad can then be used to control the volume, switch radio channels, pauze, ...
 
 ## Additional Features
 
