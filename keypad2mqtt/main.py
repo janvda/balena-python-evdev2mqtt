@@ -38,7 +38,8 @@ if __name__ == '__main__':
             if event.type == evdev.ecodes.EV_KEY:
                 keyevent= evdev.categorize(event)
                 print(keyevent)
-                mqtt_msg=json.dumps({"keycode" : keyevent.keycode, "keystate" : keyevent.keystate , "value" : keyevent.value, "timestamp" : keyevent.timestamp })
+                # see https://python-evdev.readthedocs.io/en/latest/apidoc.html#module-evdev.events
+                mqtt_msg=json.dumps({"keycode" : keyevent.keycode, "keystate" : keyevent.keystate , "scancode" : keyevent.scancode })
                 mqttClient.publish("keypad2mqtt/raw",str(evdev.categorize(event)))
                 mqttClient.publish("keypad2mqtt/EV_KEY",mqtt_msg)
 
