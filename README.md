@@ -37,7 +37,9 @@ Within your balenacloud dashboard you must set the following device service vari
 
 | Service Variable         | Description                                  |
 |------------------------- | ---------------------------------------------|
-| **TBD**    |  TBD. |
+| **input_device**    |  This is the path of the input device that is connected to one of the USB ports of the raspberry pi.  E.g. `/dev/input/event1`.  Note that mqtt messages will only be sent for key events of this input device. At startup of this service all the input devices (with path) are written to the logs which you can view in the BalenaCloud dashboard. |
+| **mqtt_broker** | default value = `mqtt`.  This variable must be set if you want to use a different mqtt broker instead of the `mqtt` service |
+| **mqtt_port** | default value = `1883`.  If the mqtt broker is listening to a different port then this variable must be set. |
 
 ### Interesting Links
 
