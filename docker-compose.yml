@@ -3,9 +3,9 @@ volumes:
   volume_data:
   node-red-data:
 services:
-  #keypad2mqtt:
-  # build: ./keypad2mqtt
-  # privileged: true
+  keypad2mqtt:
+    build: ./keypad2mqtt
+    privileged: true
   node-red:
     build: ./node-red
     privileged: true
