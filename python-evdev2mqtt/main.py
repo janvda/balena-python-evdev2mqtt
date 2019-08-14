@@ -40,9 +40,12 @@ if __name__ == '__main__':
                 keystate= "key_up" if keyevent.keystate == 0 else "key_down" if keyevent.keystate == 1 else "key_hold" if keyevent.keystate == 2 else "unknown_keystate"
                 print(keyevent)
                 # see https://python-evdev.readthedocs.io/en/latest/apidoc.html#evdev.events.InputEvent
-                mqtt_msg=json.dumps({"timestamp" : event.timestamp() ,  "keycode" : keyevent.keycode, 
-                                     "keystate" :  keystate,
-                                     "keystate_raw" : keyevent.keystate , "scancode" : keyevent.scancode })
+                mqtt_msg=json.dumps({"timestamp" : event.timestamp() ,  
+                                     "device"    : { "path" : device.path, "name" : device.name, "phys" : device.phys },
+                                     "keycode"   : keyevent.keycode, 
+                                     "keystate"  :  keystate,
+                                     "keystate_raw" : keyevent.keystate , 
+                                     "scancode" : keyevent.scancode })
                 mqttClient.publish("python-evdev2mqtt/str_key_event",str(evdev.categorize(event)))
                 mqttClient.publish("python-evdev2mqtt/key_event",mqtt_msg)
 
