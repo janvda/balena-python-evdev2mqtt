@@ -100,15 +100,10 @@ module.exports = {
     adminAuth: {
         type: "credentials",
         users: [{
-            username: process.env.USERNAME ,
-            password: process.env.PASSWORD ,
+            username: ( process.env.USERNAME ? process.env.USERNAME : "pi" ),
+            // default password = balena
+            password: ( process.env.PASSWORD ? process.env.PASSWORD : "$2b$08$ixVRw1uSUQ/aFAS.I/hlde1ENX1mzFSeQVaAKKKfInUXhZk.JhfTK" ),
             permissions: "*"
-        },
-        {
-            username: "reader",
-            // password = read
-            password: "$2a$08$f5V3KI.0byOpBzcnrt7qxuSWPDilVn4nwedWYRuvOeGi2v4FfudP.",
-            permissions: "read"
         }]
     },
 
