@@ -36,7 +36,8 @@ if __name__ == '__main__':
         mqttClient.connect(mqttBroker,mqttPort)
         mqttClient.loop_start()
 
-        mqttClient.publish("python-evdev2mqtt/device","service started")
+        mqttClient.publish("python-evdev2mqtt/listening_to_device",
+                           json.dumps( { "device" : { "path" : device.path, "name" : device.name, "phys" : device.phys } }))
 
         print("\nListening to the selected input device ...")
         for event in device.read_loop():
