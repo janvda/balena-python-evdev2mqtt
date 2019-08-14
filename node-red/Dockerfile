@@ -4,7 +4,7 @@ FROM nodered/node-red-docker:rpi-v8
 
 # installing editor nano and usb libraries needed for node-red-contrib-usbhid (https://github.com/LedgerHQ/btchip-python/issues/27)
 USER root
-RUN apt-get update && apt-get install nano libusb-1.0.0-dev #libudev-dev
+RUN apt-get update && apt-get install nano libusb-1.0.0-dev libudev-dev
 
 # following command should assure that user node-red can use sudo without requiring to enter a password.
 RUN echo "node-red ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
