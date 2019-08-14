@@ -5,8 +5,8 @@ FROM nodered/node-red-docker:rpi-v8
 # run node-red as root user as this is needed to get the HIDdevice node working.
 USER root
 
-# is needed if we want to create a hashed password in the node-red terminal window
-# note that installing globally didn't work - there I had to install it locally and next
+# is needed if we want to create a hashed password using the node-red terminal window in the balenaCloud dashboard.
+# note that installing it globally (-g option) didn't work - there I had to install it locally and next
 # RUN command will create a symbolic link so that node-red-admin is in the $PATH
 RUN npm install node-red-admin
 RUN ln -s  /usr/src/node-red/node_modules/.bin/node-red-admin  /usr/local/bin/node-red-admin
