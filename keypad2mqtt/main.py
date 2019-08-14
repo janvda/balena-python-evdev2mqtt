@@ -28,10 +28,16 @@ if __name__ == '__main__':
         print("\nThe capabilities of the selected input device =")
         print(device.capabilities(verbose=True))
 
+        mqttClient=mqtt.Client("keypad2mqtt")
+        mqttClient.connect("mqtt",1883)
+        mqttClient.loop_start()
+        mqttClient.publish("keypad2mqtt","service started")
+
         print("\nListening to the selected input device ...")
         for event in device.read_loop():
             if event.type == evdev.ecodes.EV_KEY:
                 print(evdev.categorize(event))
+                mqttClient.publish("keypad2mqtt/event",evdev.categorize(event))
 
     # all exceptions are handled !
     except Exception as error:
