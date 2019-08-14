@@ -3,8 +3,8 @@ volumes:
   volume_data:
   node-red-data:
 services:
-  keypad2mqtt:
-    build: ./keypad2mqtt
+  python-evdev2mqtt:
+    build: ./python-evdev2mqtt
     privileged: true
   node-red:
     build: ./node-red
