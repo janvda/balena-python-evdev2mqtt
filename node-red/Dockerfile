@@ -15,7 +15,7 @@ COPY ./85-pure-data.rules /etc/udev/rules.d
 RUN groupadd -f input
 RUN gpasswd -a node-red input
 
-USER node-red
+#USER node-red
 
 RUN npm install git+https://git@github.com/CCSnell/node-red-contrib-usbhid.git
 RUN npm install node-red-contrib-resinio
