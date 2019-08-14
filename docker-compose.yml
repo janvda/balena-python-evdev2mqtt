@@ -12,7 +12,7 @@ services:
     volumes:
        - 'node-red-data:/data'
     ports:
-       - "1880:1880"
+       - "80:1880"
     depends_on:
         - mqtt
     restart: always
