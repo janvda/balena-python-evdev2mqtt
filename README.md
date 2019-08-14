@@ -1,6 +1,6 @@
-# Balena "keypad2mqtt" Application
+# Balena "pythong-evdev2mqtt" Application
 
-This is a [Balena](https://www.balena.io/) application consisting of a single docker container "`keypad2mqtt`"
+This is a [Balena](https://www.balena.io/) application consisting of 3 docker containers "`python-evdev2mqtt`"
 which ....
 
 ## Rationale for this Application
@@ -25,9 +25,9 @@ After this step this balena application should be running on your raspberry pi.
 
 ### 2. TBD
 
-### 3. Set Device Service Variables for the keypad2mqtt container
+### 3. Set Device Service Variables for the python-evdev2mqtt container
 
-Within your balenacloud dashboard you must set the following device service variables for the `keypad2mqtt` container.
+Within your balenacloud dashboard you must set the following device service variables for the `python-evdev2mqtt` container.
 
 | Service Variable         | Description                                  |
 |------------------------- | ---------------------------------------------|
