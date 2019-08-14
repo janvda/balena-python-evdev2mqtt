@@ -3,9 +3,9 @@ volumes:
   volume_data:
   node-red-data:
 services:
-  keypad2mqtt:
-    build: ./keypad2mqtt
-    privileged: true
+  #keypad2mqtt:
+  # build: ./keypad2mqtt
+  # privileged: true
   samba-rsync:
     build: ./samba-rsync
     privileged: true
