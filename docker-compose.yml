@@ -6,16 +6,6 @@ services:
   #keypad2mqtt:
   # build: ./keypad2mqtt
   # privileged: true
-  samba-rsync:
-    build: ./samba-rsync
-    privileged: true
-    volumes:
-      - 'volume_data:/data'
-    ports:
-      - "139:139"
-      - "445:445"
-    environment:
-      - UDEV=1  # see https://www.balena.io/docs/reference/base-images/base-images/#working-with-dynamically-plugged-devices
   node-red:
     build: ./node-red
     privileged: true
