@@ -6,7 +6,7 @@ FROM nodered/node-red-docker:rpi-v8
 USER root
 
 # is needed if we want to create a hashed password in the node-red terminal window
-RUN npm install -g node-red-admin
+RUN npm install node-red-admin
 
 # installing editor nano and usb libraries needed for node-red-contrib-usbhid (https://github.com/LedgerHQ/btchip-python/issues/27)
 RUN apt-get update && apt-get install nano libusb-1.0.0-dev libudev-dev
