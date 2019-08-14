@@ -1,5 +1,5 @@
 #empty file
-import evdev, time, os
+import evdev, time, os, json
 import paho.mqtt.client as mqtt
 
 if __name__ == '__main__':
@@ -36,8 +36,11 @@ if __name__ == '__main__':
         print("\nListening to the selected input device ...")
         for event in device.read_loop():
             if event.type == evdev.ecodes.EV_KEY:
-                print(evdev.categorize(event))
-                mqttClient.publish("keypad2mqtt/EV_KEY",str(evdev.categorize(event)))
+                keyevent= evdev.categorize(event)
+                print(keyevent)
+                mqtt_msg=json.dumps({"key" : keyevent.key, "keystate" : keyevent.keystate , "value" : keyevent.value, "timestamp" : keyevent.timestamp })
+                mqttClient.publish("keypad2mqtt/raw",str(evdev.categorize(event)))
+                mqttClient.publish("keypad2mqtt/EV_KEY",mqtt_msg)
 
     # all exceptions are handled !
     except Exception as error:
