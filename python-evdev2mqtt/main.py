@@ -28,10 +28,10 @@ if __name__ == '__main__':
         print("\nThe capabilities of the selected input device =")
         print(device.capabilities(verbose=True))
 
-        mqttClient=mqtt.Client("keypad2mqtt")
+        mqttClient=mqtt.Client("python-evdev2mqtt")
         mqttClient.connect("mqtt",1883)
         mqttClient.loop_start()
-        mqttClient.publish("keypad2mqtt","service started")
+        mqttClient.publish("python-evdev2mqtt","service started")
 
         print("\nListening to the selected input device ...")
         for event in device.read_loop():
@@ -43,8 +43,8 @@ if __name__ == '__main__':
                 mqtt_msg=json.dumps({"timestamp" : event.timestamp() ,  "keycode" : keyevent.keycode, 
                                      "keystate" :  keystate,
                                      "keystate_raw" : keyevent.keystate , "scancode" : keyevent.scancode })
-                mqttClient.publish("keypad2mqtt/raw",str(evdev.categorize(event)))
-                mqttClient.publish("keypad2mqtt/EV_KEY",mqtt_msg)
+                mqttClient.publish("keypad/raw",str(evdev.categorize(event)))
+                mqttClient.publish("keypad/EV_KEY",mqtt_msg)
 
     # all exceptions are handled !
     except Exception as error:
