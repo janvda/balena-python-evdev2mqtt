@@ -33,13 +33,13 @@ After this step this balena application should be running on your raspberry pi.
 
 ### 2. TBD
 
-### 3. Set Device Service Variables for the python-evdev2mqtt container
+### 3. Set Device Service Variables for the python-evdev2mqtt service
 
-Within your balenacloud dashboard you must set the following device service variables for the `python-evdev2mqtt` container.
+Within your balenacloud dashboard you can set the following device service variables for the `python-evdev2mqtt` container.
 
 | Service Variable         | Description                                  |
 |------------------------- | ---------------------------------------------|
-| **input_device**    |  This is the path of the input device that is connected to one of the USB ports of the raspberry pi.  E.g. `/dev/input/event1`.  Note that mqtt messages will only be sent for key events of this input device. At startup of this service all the input devices (with path) are written to the logs which you can view in the BalenaCloud dashboard. |
+| **input_device**    |  This is the path of the input device that is connected to one of the USB ports of the raspberry pi.  E.g. `/dev/input/event1`.  Note that mqtt messages will only be sent for key events of this input device. At startup of the python-evdev2mqtt service all the connected input devices (with path) are written to the logs which you can view in the BalenaCloud dashboard. |
 | **mqtt_broker** | default value = `mqtt`.  This variable must be set if you want to use a different mqtt broker instead of the `mqtt` service |
 | **mqtt_port** | default value = `1883`.  If the mqtt broker is listening to a different port then this variable must be set. |
 
