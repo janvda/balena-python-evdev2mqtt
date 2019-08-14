@@ -1,7 +1,10 @@
-# Balena "pythong-evdev2mqtt" Application
+# Balena "python-evdev2mqtt" Application
 
-This is a [Balena](https://www.balena.io/) application consisting of 3 docker containers "`python-evdev2mqtt`"
-which ....
+This is a [Balena](https://www.balena.io/) application consisting of 3 docker containers.
+
+1. `python-evdev2mqtt`: TBD
+1. `mqtt` : TBD
+1. `node-red`: TBD
 
 ## Rationale for this Application
 
