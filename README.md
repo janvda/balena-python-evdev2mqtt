@@ -2,21 +2,24 @@
 
 This is a [Balena](https://www.balena.io/) application consisting of 3 docker containers.
 
-1. `python-evdev2mqtt`: TBD
-1. `mqtt` : TBD
-1. `node-red`: TBD
+1. `python-evdev2mqtt`: this service is sending an mqtt message whenever a key is pressed/hold/released for a specific input device connected to one of the USB ports of a raspberry pi.
+1. `mqtt` : mqtt broker receiving the mqtt messages sent by the `python-evdev2mqtt` service.
+1. `node-red`: this service has a dual purpose:
+   1. It demonstrates that `python-evdev2mqtt`is working properly as it outputs those mqtt messages in the debug window of the node-red editor.
+   1. It also demonstrates the (limited) features of the `node-red-contrib-usbhid` nodes that can also be used to receive events from those input devices connected to the USB ports of a raspberry pi.
 
 ## Rationale for this Application
 
 The idea is to use ...
 
-## Features
+## Additional Features
 
-1. TBD
+1. Node-red editor can be accessed through the public device URL from the BalenaCloud dashboard.
+1. It is also easy to create a [hashed password](https://nodered.org/docs/user-guide/runtime/securing-node-red) for node-red by running the command "`node-red-admin hash-pw`" in a terminal window for the `node-red` service.
 
 ## Hardware needed besides a raspberry pi
 
-1. ...
+1. You need an USB device that generates key events (e.g. keypad, keyboard, ...)
 
 ## SETUP INSTRUCTIONS
 
