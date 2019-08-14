@@ -17,7 +17,7 @@ RUN gpasswd -a node-red input
 
 USER node-red
 
-RUN npm install node-red-contrib-usbhid
+RUN npm install git+https://git@github.com/CCSnell/node-red-contrib-usbhid.git
 RUN npm install node-red-contrib-resinio
 RUN npm install node-red-dashboard
 RUN npm install node-red-contrib-credentials
