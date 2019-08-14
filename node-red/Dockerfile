@@ -8,8 +8,14 @@ USER root
 # installing editor nano and usb libraries needed for node-red-contrib-usbhid (https://github.com/LedgerHQ/btchip-python/issues/27)
 RUN apt-get update && apt-get install nano libusb-1.0.0-dev libudev-dev
 
+
 RUN npm install git+https://git@github.com/CCSnell/node-red-contrib-usbhid.git
-#RUN npm install node-red-contrib-usbhid
+# it is bit unclear why the installation of the above fork of node-red-contrib-usbhid makes a difference compared to the master version
+# but it makes a difference:
+#   - The getHIDdevices node provides more detail.
+#   - the HIDdevice node seems to be more stable (is always reacting to a device event)
+# RUN npm install node-red-contrib-usbhid
+
 RUN npm install node-red-contrib-resinio
 RUN npm install node-red-dashboard
 RUN npm install node-red-contrib-credentials
