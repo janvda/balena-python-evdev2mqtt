@@ -29,6 +29,7 @@ if __name__ == '__main__':
         print(device.capabilities(verbose=True))
 
         # MQTT client setup
+        #   TBD improve error handling
         mqttBroker= "mqtt" if ( os.environ.get("mqtt_broker") is None ) else os.environ["mqtt_broker"]
         mqttPort  =  1883  if ( os.environ.get("mqtt_port")   is None ) else int(os.environ["mqtt_port"])
 
@@ -38,7 +39,9 @@ if __name__ == '__main__':
 
         # Publish the details of the device we are listening to
         mqttClient.publish("python-evdev2mqtt/listening_to_device",
-                           json.dumps( { "device" : { "path" : device.path, "name" : device.name, "phys" : device.phys } }))
+                           json.dumps( { "time" : time.time() , "device" : { "path" : device.path, "name" : device.name, "phys" : device.phys } }),
+                           2,    # qos= 2 - deliver exactly once
+                           True) # tell broker to retain this message so that it gets delivered
         print("\nListening to the selected input device ...")
         for event in device.read_loop():
             if event.type == evdev.ecodes.EV_KEY:
